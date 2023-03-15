@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
+    // function show All date in tabel Student
     public function index()
     {
         $studend = Student::all();
@@ -28,6 +29,7 @@ class StudentController extends Controller
         }
     }
 
+    // function add  date in tabel Student
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -61,6 +63,7 @@ class StudentController extends Controller
         ], 500);
     }
 
+    // function show oun student in tabel Student
     public function show($id)
     {
         $studend = Student::find($id);
@@ -76,6 +79,7 @@ class StudentController extends Controller
         ], 404);
     }
 
+    // function show oun student in tabel Student
     public function edit($id)
     {
         $studend = Student::find($id);
@@ -91,6 +95,7 @@ class StudentController extends Controller
         ], 404);
     }
 
+    // function update oun date in tabel Student
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
@@ -125,6 +130,7 @@ class StudentController extends Controller
         ], 404);
     }
 
+    // function delete oun date in tabel Student
     public function distroy($id)
     {
         $studend = Student::find($id);
