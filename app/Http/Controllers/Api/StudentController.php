@@ -125,9 +125,19 @@ class StudentController extends Controller
         ], 404);
     }
 
-    public function distroy(Request $request, $id)
+    public function distroy($id)
     {
         $studend = Student::find($id);
-        
+        if ($studend) {
+            $studend->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Student Deleted Successfully',
+            ], 200);
+        }
+        return response()->json([
+            'status' => 404,
+            'message' => 'No such student Found!',
+        ], 404);
     }
 }
